@@ -1,0 +1,32 @@
+<html>
+<body>
+<div>
+    <h3>Добавление группы</h3>
+    <form method="post">
+        <input type="text" name="nameGroup" placeholder="Название группы:" required>
+        <input type="number" name="workingDay" placeholder="Тренировочный день:" required >
+        <button type="submit">Добавить группу</button>
+    </form>
+    <h3> Изменение названия группы </h3>
+    <form method="post" action="updateGroups">
+        <input type="number" name = "idGroup" placeholder="Введите ID группы:">
+        <input type="text" name = "newNameGroup" placeholder="Введите новое название группы:" required>
+        <button type="submit">Изменить</button>
+    </form>
+    <h3>Удаление группы</h3>
+    <form method="post" action="deleteGroupById">
+        <input type="number" name="idGroup" placeholder="Укажите ID группы:" required>
+        <button type="submit">Удалить группу</button>
+    </form>
+</div>
+<h3> Список групп </h3>
+{{#groups}}
+    <div>
+        <b> {{idGroup}} </b>
+        <span> {{nameGroup}} </span>
+        <span> {{number}} </span>
+        <span> {{workingDay}} </span>
+    </div>
+{{/groups}}
+</body>
+</html>

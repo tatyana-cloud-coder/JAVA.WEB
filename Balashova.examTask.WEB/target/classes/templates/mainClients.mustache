@@ -1,0 +1,50 @@
+<html>
+<body>
+<div>
+    <h3>Добавление клиента</h3>
+    <form method="post">
+        <input type="text" name="firstName" placeholder="Имя клиента:" required>
+        <input type="text" name="lastName" placeholder="Фамилия клиента:" required>
+        <input type="text" name="telephoneNumber" placeholder="Номер телефона клиента:" maxlength=11>
+        <input type="number" name="idGroup" placeholder="Номер группы:" required>
+        <button type="submit">Добавить клиента</button>
+    </form>
+    <h3>Поиск клиента по имени</h3>
+    <form method="post" action="searchClients">
+        <input type="text" name = "firstName" placeholder="Введите имя клиента:">
+        <button type="submit"> Найти </button>
+    </form>
+    <h3>Поиск клиента по имени и фамилии</h3>
+    <form method="post" action="searchClientsBy">
+        <input type="text" name = "firstName" placeholder="Введите имя клиента:" required>
+        <input type="text" name = "lastName" placeholder="Введите фамилию клиента:" required>
+        <button type="submit">Найти</button>
+    </form>
+    <h3>Поиск клиентов в группе с количеством человек, меньшим заданного</h3>
+    <form method="post" action="searchClientsCustomSec">
+        <input type="number" name="maxNumber" placeholder="Максимальное количество человек:" required>
+        <button type="submit">Найти </button>
+    </form>
+    <h3> Изменение имени клиента </h3>
+    <form method="post" action="updateClients">
+        <input type="number" name = "idClient" placeholder="Введите ID клиента:" required>
+        <input type="text" name = "newFirstName" placeholder="Введите новое имя клиента:">
+        <button type="submit">Изменить</button>
+    </form>
+    <h3>Удаление клиента</h3>
+    <form method="post" action="deleteClientById">
+        <input type="number" name="idClient" placeholder="Укажите ID клиента:" required>
+        <button type="submit">Удалить клиента</button>
+    </form>
+</div>
+<h3> Список клиентов </h3>
+{{#clients}}
+<div>
+<b> {{idClient}} </b>
+<span> {{firstName}} </span>
+<span> {{lastName}} </span>
+<span> {{telephoneNumber}} </span>
+</div>
+{{/clients}}
+</body>
+</html>
